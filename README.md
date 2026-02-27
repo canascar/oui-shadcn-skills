@@ -63,3 +63,45 @@ The implementation follows a phased approach outlined in `oui-steering-docs/oui-
 | `fast-check` | Property-based testing (optional) |
 
 See `oui-steering-docs/oui-tasks.md` for the full task breakdown with requirement traceability.
+
+## Agent Workflow: From Page to Production
+
+When a Figma page or design mockup is sent to the agent for design and development, the following steps are taken:
+
+### Phase 1: Design Analysis
+1. The agent receives the Figma page/frame and identifies the UI components, layout structure, and visual properties present in the design.
+2. The agent cross-references the design against `oui-steering-docs/oui-design-system.md` to map visual elements to existing design tokens (colors, typography, spacing, radii, shadows).
+3. Any component patterns are matched to existing specs (e.g., sidebar layout maps to `oui-steering-docs/oui-sidebar-component.md`).
+
+### Phase 2: Token Verification
+4. The agent verifies that all colors, fonts, and spacing used in the design correspond to tokens defined in the design system. If a value doesn't match a known token, the agent flags it and asks for clarification.
+5. Color values from the design are run through the `hexToHSL()` pipeline to confirm they resolve to the expected CSS custom properties in both light and dark modes.
+
+### Phase 3: Component Scaffolding
+6. The agent identifies which shadcn/ui primitives are needed (Button, Card, Input, etc.) and scaffolds the component file using the project's conventions (`cn()` utility, Tailwind classes, CSS variable references).
+7. Layout structure is built following the patterns in the design docs — flex containers, spacing tokens, responsive breakpoints.
+8. All color references use design system tokens via Tailwind utilities (`bg-primary`, `text-muted-foreground`) or `var(--token)` — never raw hex/rgb values.
+
+### Phase 4: Styling & Theming
+9. The agent applies the correct token classes for backgrounds, text, borders, shadows, and radii as defined in `oui-design-system.md`.
+10. Dark mode support is verified by ensuring all styled elements use CSS custom properties that swap automatically when the `.dark` class is present.
+11. Typography is set using the Inter font family with the appropriate weight and size from the type scale.
+
+### Phase 5: Accessibility & Validation
+12. The agent checks that foreground/background color pairs meet WCAG AA contrast ratios (4.5:1 for normal text, 3:1 for large text and UI components) using the contrast validation logic from `src/theme/contrast-check.ts`.
+13. Interactive elements include proper ARIA attributes, keyboard navigation, and focus states.
+14. The component is linted to ensure no raw color literals are present.
+
+### Phase 6: Integration & Review
+15. The component is wired into the application layout, receiving any required props (e.g., `collapsed` for the sidebar).
+16. The agent runs a build check to confirm no type errors, missing imports, or token mismatches.
+17. The completed component is presented for review, with notes on any design decisions or deviations from the original mockup.
+
+### Summary Flow
+
+```
+Figma Page → Design Analysis → Token Verification → Component Scaffolding
+    → Styling & Theming → Accessibility & Validation → Integration & Review
+```
+
+Each phase references the steering docs as the source of truth. The agent will pause and ask for input if the design contains elements that don't map cleanly to existing tokens or component specs.
