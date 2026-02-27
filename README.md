@@ -1,4 +1,4 @@
-# OUI Shadcn Skills
+# OUI Shadcn Skills (Steering Documents)
 
 This repository contains the specification and planning documents for the OUI-SCN-DS project — an OpenSearch-branded shadcn/Tailwind CSS v4 design system. The system converts Figma design tokens into CSS custom properties consumed by shadcn/ui components, supporting both light and dark modes.
 
