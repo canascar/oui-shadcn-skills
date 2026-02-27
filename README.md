@@ -2,6 +2,36 @@
 
 This repository contains the specification and planning documents for the OUI-SCN-DS project — an OpenSearch-branded shadcn/Tailwind CSS v4 design system. The system converts Figma design tokens into CSS custom properties consumed by shadcn/ui components, supporting both light and dark modes.
 
+## Adding Steering Docs to Kiro
+
+To use these documents as steering files in Kiro, copy them into your project's `.kiro/steering/` directory:
+
+```bash
+mkdir -p .kiro/steering
+cp oui-steering-docs/*.md .kiro/steering/
+```
+
+By default, all steering files in `.kiro/steering/` are automatically included in every agent interaction. If you'd prefer a file to only load when relevant, add a front-matter block at the top of the file:
+
+```markdown
+---
+inclusion: fileMatch
+fileMatchPattern: 'src/theme/**'
+---
+```
+
+This tells Kiro to only include that steering file when a matching file is read into context. For example, `oui-design-system.md` could be scoped to `src/theme/**` so it's only pulled in when working on theme files.
+
+To make a file available on-demand via the `#` context key in chat instead of auto-included:
+
+```markdown
+---
+inclusion: manual
+---
+```
+
+You can also reference other project files from within a steering doc using `#[[file:path/to/file]]` — useful for linking an OpenAPI spec or GraphQL schema directly into the steering context.
+
 ## Files
 
 All documents live in the `oui-steering-docs/` folder.
