@@ -34,7 +34,7 @@ Sourced from Figma (`shadcn-OUI`, node `20139:27660`).
 - Outer paths (arc + bottom swirl): `#075985` (sky-800) — matches `--brand-primary` in light mode
 - Center swirl: `#082F49` (sky-950)
 - On dark backgrounds: use white (`#FAFAFA`) for outer paths, keep center swirl or lighten to `#0EA5E9` (sky-400) for contrast
-- In dark mode, `--brand-primary` shifts to `#0284c7` (sky-600) and `--brand-secondary` to `#bae6fd` (sky-200) for decorative/accent use
+- In dark mode, `--brand-primary` shifts to `#006BB4` and `--brand-secondary` to `#bae6fd` (sky-200) for decorative/accent use
 - Never place the logo on a background that doesn't meet 3:1 contrast ratio against the mark fills
 - Always maintain the original aspect ratio — do not stretch or distort
 
@@ -98,7 +98,7 @@ All colors are expressed as CSS custom properties on `:root` (light) and `.dark`
 | `--foreground` | `#0a0a0a` | Primary text |
 | `--card` | `#ffffff` | Card surfaces |
 | `--card-foreground` | `#0a0a0a` | Card text |
-| `--primary` | `#0369a1` (sky-700) | Buttons, links, active states |
+| `--primary` | `#006BB4` | Buttons, links, active states |
 | `--primary-foreground` | `#fafafa` | Text on primary surfaces |
 | `--secondary` | `#f5f5f5` | Secondary surfaces |
 | `--secondary-foreground` | `#171717` | Text on secondary surfaces |
@@ -118,7 +118,7 @@ All colors are expressed as CSS custom properties on `:root` (light) and `.dark`
 
 ### Color Usage Rules
 
-- Primary actions (buttons, links, chart active elements) use `--primary` (#0369a1).
+- Primary actions (buttons, links, chart active elements) use `--primary` (#006BB4).
 - Hover/highlight states use `--accent` (#e0f2fe) in light mode.
 - Dark mode background uses `--brand-secondary` (#082f49) as the deep navy base.
 - Never use raw hex values in components — always reference CSS custom properties.
@@ -195,15 +195,15 @@ All spacing uses a 4px base unit. Reference by Tailwind class or CSS custom prop
 
 | Token | Value | Usage |
 |---|---|---|
-| `--radius-md` | 4px | Small elements (badges, chips) |
-| `--radius-lg` | 6px | Default for buttons, inputs, cards |
-| `--radius-xl` | 8px | Larger containers, dialogs |
-| `--radius-2xl` | 16px | Feature cards, hero sections |
+| `--radius-md` | 2px | Small elements (badges, chips) |
+| `--radius-lg` | 4px | Default for buttons, inputs, cards |
+| `--radius-xl` | 6px | Larger containers, dialogs |
+| `--radius-2xl` | 8px | Feature cards, hero sections |
 | `--radius-full` | 9999px | Avatars, circular elements |
 
 ### Radius Rules
 
-- shadcn `--radius` base variable: `0.375rem` (6px) — maps to `rounded-lg`.
+- shadcn `--radius` base variable: `0.25rem` (4px) — maps to `rounded-lg`.
 - Buttons and inputs use `--radius` (the shadcn default calc).
 - Cards use `--radius-lg` or `--radius-xl`.
 - Never mix radius values on adjacent elements in the same visual group.

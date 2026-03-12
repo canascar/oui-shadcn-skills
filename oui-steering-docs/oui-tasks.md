@@ -10,7 +10,7 @@ Implement the OpenSearch-branded shadcn/Tailwind CSS v4 design system. The pipel
   - [ ] 1.1 Create the token definition file with all OUI design tokens
     - Create `src/theme/tokens.ts` defining the `DesignTokenSet` with all color tokens (light and dark hex values), radius tokens, shadow tokens, font definitions, and spacing values
     - Include all shadcn_Required_Tokens: background, foreground, primary, primary-foreground, secondary, secondary-foreground, muted, muted-foreground, accent, accent-foreground, border, input, ring, card, card-foreground, destructive, destructive-foreground, popover, popover-foreground
-    - Define brand tokens: `--primary` as `#0369a1` (light) / `#0284c7` (dark), `--background` light as `#ffffff`, dark as `#0a0a0a`, `--accent` as `#e0f2fe` (light) / `#0c4a6e` (dark)
+    - Define brand tokens: `--primary` as `#006BB4` (light and dark), `--background` light as `#ffffff`, dark as `#0a0a0a`, `--accent` as `#e0f2fe` (light) / `#0c4a6e` (dark)
     - Dark mode uses neutral-based palette: background `#0a0a0a`, card `#171717`, secondary/muted `#262626`
     - Dark mode borders use alpha-based white: `--border` as `#ffffff33`, `--input` as `#ffffff26`
     - Dark mode `--primary-foreground` inverts to `#171717`

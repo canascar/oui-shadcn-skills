@@ -61,7 +61,7 @@ This document defines the requirements for the OpenSearch-branded OUI-SCN-DS des
 
 #### Acceptance Criteria
 
-1. THE Theme_CSS_File SHALL define `--primary` as the HSL equivalent of `#0369a1` (sky-700) in the `:root` selector
+1. THE Theme_CSS_File SHALL define `--primary` as the HSL equivalent of `#006BB4` in the `:root` selector
 2. THE Theme_CSS_File SHALL define `--background` as the HSL equivalent of `#ffffff` in the `:root` selector
 3. THE Theme_CSS_File SHALL define `--accent` as the HSL equivalent of `#e0f2fe` (sky-100) in the `:root` selector
 4. THE Theme_CSS_File SHALL define all shadcn_Required_Tokens in the `:root` selector
@@ -78,7 +78,7 @@ This document defines the requirements for the OpenSearch-branded OUI-SCN-DS des
 2. THE Theme_CSS_File SHALL define `--foreground` as a light neutral color (HSL equivalent of `#fafafa`) in the `.dark` selector
 3. WHILE dark mode is active, THE Theme_CSS_File SHALL minimize or disable shadow tokens to reflect that dark surfaces do not cast visible shadows
 4. THE Theme_CSS_File SHALL define every token present in `:root` with a corresponding entry in the `.dark` selector
-5. THE Theme_CSS_File SHALL define `--primary` as the HSL equivalent of `#0284c7` (sky-600) in the `.dark` selector
+5. THE Theme_CSS_File SHALL define `--primary` as the HSL equivalent of `#006BB4` in the `.dark` selector
 6. THE Theme_CSS_File SHALL define `--primary-foreground` as the HSL equivalent of `#171717` (neutral-900) in the `.dark` selector
 7. THE Theme_CSS_File SHALL define `--card` as the HSL equivalent of `#171717` (neutral-900) in the `.dark` selector
 8. THE Theme_CSS_File SHALL define `--secondary` and `--muted` as the HSL equivalent of `#262626` (neutral-800) in the `.dark` selector

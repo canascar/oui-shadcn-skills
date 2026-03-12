@@ -6,7 +6,7 @@ This spec covers the technical implementation of an OpenSearch-branded shadcn/Ta
 
 The implementation produces a single CSS theme file that defines all tokens as custom properties on `:root` (light) and `.dark` (dark) selectors, a Tailwind config extension for custom values, and font setup for Inter/Inter Mono. All shadcn/ui components will automatically inherit the OUI brand through these tokens without per-component overrides.
 
-The primary color is sky-700 (`#0369a1`) for actions and interactive elements in light mode, shifting to sky-600 (`#0284c7`) in dark mode for better contrast. Dark mode uses neutral-950 (`#0a0a0a`) as the background with neutral-900/800 surfaces, and alpha-based white borders for transparency. The type system uses Inter (sans) and Inter Mono (mono) with a standard modular scale from 12px to 36px.
+The primary color is `#006BB4` for actions and interactive elements in both light and dark modes. Dark mode uses neutral-950 (`#0a0a0a`) as the background with neutral-900/800 surfaces, and alpha-based white borders for transparency. The type system uses Inter (sans) and Inter Mono (mono) with a standard modular scale from 12px to 36px.
 
 ## Architecture
 
@@ -163,7 +163,7 @@ interface ColorToken {
 
 interface RadiusToken {
   name: string    // e.g. "lg"
-  value: string   // e.g. "0.375rem"
+  value: string   // e.g. "0.25rem"
 }
 
 interface ShadowToken {
@@ -222,7 +222,7 @@ function generateCSSVariables(
 
 **Postconditions:**
 - Returns a valid CSS block string containing custom property declarations
-- Each property is prefixed with `--` (e.g., `--primary: 199 89% 32%`)
+- Each property is prefixed with `--` (e.g., `--primary: 201 100% 35%`)
 - Light mode returns `:root { ... }` block
 - Dark mode returns `.dark { ... }` block
 - All tokens from input are represented in output
@@ -341,7 +341,7 @@ function hexToHSL(hex: string): HSLString {
     --foreground: 0 0% 4%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 4%;
-    --primary: 199 89% 32%;
+    --primary: 201 100% 35%;
     --primary-foreground: 0 0% 98%;
     --secondary: 0 0% 96%;
     --secondary-foreground: 0 0% 9%;
@@ -351,15 +351,15 @@ function hexToHSL(hex: string): HSLString {
     --accent-foreground: 0 0% 9%;
     --border: 0 0% 83%;
     --input: 0 0% 90%;
-    --ring: 199 89% 32%;
+    --ring: 201 100% 35%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --radius: 0.375rem;
-    --radius-md: 0.25rem;
-    --radius-lg: 0.375rem;
-    --radius-xl: 0.5rem;
-    --radius-2xl: 1rem;
+    --radius: 0.25rem;
+    --radius-md: 0.125rem;
+    --radius-lg: 0.25rem;
+    --radius-xl: 0.375rem;
+    --radius-2xl: 0.5rem;
 
     --font-sans: "Inter", system-ui, sans-serif;
     --font-mono: "Inter Mono", ui-monospace, monospace;
@@ -374,7 +374,7 @@ function hexToHSL(hex: string): HSLString {
     --foreground: 0 0% 98%;
     --card: 0 0% 9%;
     --card-foreground: 0 0% 98%;
-    --primary: 199 89% 39%;
+    --primary: 201 100% 35%;
     --primary-foreground: 0 0% 9%;
     --secondary: 0 0% 15%;
     --secondary-foreground: 0 0% 98%;
@@ -384,7 +384,7 @@ function hexToHSL(hex: string): HSLString {
     --accent-foreground: 0 0% 98%;
     --border: 0 0% 100% / 0.2;
     --input: 0 0% 100% / 0.15;
-    --ring: 199 89% 39%;
+    --ring: 201 100% 35%;
     --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 98%;
 
@@ -421,10 +421,10 @@ function hexToHSL(hex: string): HSLString {
   --font-sans: "Inter", system-ui, sans-serif;
   --font-mono: "Inter Mono", ui-monospace, monospace;
 
-  --radius-md: 0.25rem;
-  --radius-lg: 0.375rem;
-  --radius-xl: 0.5rem;
-  --radius-2xl: 1rem;
+  --radius-md: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.375rem;
+  --radius-2xl: 0.5rem;
 }
 ```
 
@@ -572,7 +572,7 @@ function DashboardCard() {
 
 ### Unit Testing Approach
 
-- Test `hexToHSL()` with known hex→HSL pairs (e.g., `#0369a1` → `199 89% 32%`).
+- Test `hexToHSL()` with known hex→HSL pairs (e.g., `#006BB4` → `201 100% 35%`).
 - Test `generateCSSVariables()` output contains all required tokens.
 - Test that output CSS is syntactically valid (parseable by PostCSS).
 - Test edge cases: black (`#000000`), white (`#ffffff`), pure red/green/blue.
