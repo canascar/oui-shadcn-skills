@@ -58,7 +58,7 @@ The sidebar has three vertical sections, top to bottom:
 
 #### 3. Footer (border-top)
 
-- User avatar: 32px circle with `bg-primary text-primary-foreground`, shows initial
+- User avatar: 32px circle (`rounded-full`) with `bg-primary text-primary-foreground`, shows initial
 - When expanded: avatar + name + email
 - When collapsed: avatar only, centered
 
@@ -73,7 +73,7 @@ The sidebar has three vertical sections, top to bottom:
 
 - Background: `bg-card`
 - Right border: `border-r`
-- Top-right corner radius: `rounded-tr-[var(--radius-2xl)]` (16px)
+- Top-right corner radius: `rounded-tr-[var(--radius-lg)]`
 - Transition: `transition-all duration-200`
 - Full viewport height: `h-screen`
 
@@ -101,7 +101,7 @@ The parent layout must:
   <Sidebar collapsed={collapsed} />
   <div className="flex flex-1 flex-col overflow-hidden">
     <header>...</header>
-    <main className="flex-1 overflow-y-auto p-6">{children}</main>
+    <main className="flex-1 overflow-y-auto bg-muted p-6">{children}</main>
   </div>
 </div>
 ```
@@ -138,7 +138,7 @@ Includes `aria-label="OpenSearch"` and `role="img"` for accessibility.
 - OpenSearch logo placement, size, and link target (`/`)
 - Sidebar width values (`w-60` expanded, `w-16` collapsed)
 - Header height (`h-14`) — must match between sidebar and layout header
-- Top-right corner radius (`--radius-2xl`)
+- Top-right corner radius (`--radius-lg`)
 - Background token (`bg-card`)
 - Collapse/expand toggle placement (in the layout header, not the sidebar)
 - Active/inactive nav link styling tokens
@@ -158,8 +158,8 @@ All styling references design system tokens — no raw color values:
 | User avatar | `bg-primary text-primary-foreground` |
 | Borders | `border-r`, `border-b`, `border-t` (uses `--border` token) |
 | Nav link radius | `var(--radius-lg)` |
-| Sidebar corner | `var(--radius-2xl)` |
-| Avatar radius | `var(--radius-lg)` |
+| Sidebar corner | `var(--radius-lg)` |
+| Avatar radius | `var(--radius-full)` |
 
 ## Dark Mode
 

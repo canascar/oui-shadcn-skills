@@ -32,8 +32,8 @@ Sourced from Figma (`shadcn-OUI`, node `20139:27660`).
 ### Logo Color Rules
 
 - Outer paths (arc + bottom swirl): `#075985` (sky-800) — matches `--brand-primary` in light mode
-- Center swirl: `#082F49` (sky-950)
-- On dark backgrounds: use white (`#FAFAFA`) for outer paths, keep center swirl or lighten to `#0EA5E9` (sky-400) for contrast
+- Center swirl: `#006BB4`
+- On dark backgrounds: use `#BAE6FD` for outer paths, keep center swirl or lighten to `#006BB4` for contrast
 - In dark mode, `--brand-primary` shifts to `#006BB4` and `--brand-secondary` to `#bae6fd` (sky-200) for decorative/accent use
 - Never place the logo on a background that doesn't meet 3:1 contrast ratio against the mark fills
 - Always maintain the original aspect ratio — do not stretch or distort
@@ -120,6 +120,7 @@ All colors are expressed as CSS custom properties on `:root` (light) and `.dark`
 
 - Primary actions (buttons, links, chart active elements) use `--primary` (#006BB4).
 - Hover/highlight states use `--accent` (#e0f2fe) in light mode.
+- In light mode, pages containing cards should use `bg-muted` on the main content area so cards (`bg-card`) visually lift off the background.
 - Dark mode background uses `--brand-secondary` (#082f49) as the deep navy base.
 - Never use raw hex values in components — always reference CSS custom properties.
 - Destructive actions use the `--destructive` token (red family).
@@ -206,6 +207,7 @@ All spacing uses a 4px base unit. Reference by Tailwind class or CSS custom prop
 - shadcn `--radius` base variable: `0.25rem` (4px) — maps to `rounded-lg`.
 - Buttons and inputs use `--radius` (the shadcn default calc).
 - Cards use `--radius-lg` or `--radius-xl`.
+- Avatars always use `--radius-full` (9999px) — never use a smaller radius on avatars.
 - Never mix radius values on adjacent elements in the same visual group.
 
 ## Shadows
