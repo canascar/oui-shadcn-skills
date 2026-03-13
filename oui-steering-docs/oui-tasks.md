@@ -109,6 +109,10 @@ Implement the OpenSearch-branded shadcn/Tailwind CSS v4 design system. The pipel
     - Ensure `@theme` color entries use `hsl(var(--{name}))` format
     - _Requirements: 3.5, 4.4, 5.4_
 
+  - [ ] 5.3 Configure `next.config` with `devIndicators: false`
+    - Set `devIndicators: false` in `next.config.ts` (or `next.config.js`) to disable the Next.js dev overlay
+    - This task is required and must not be skipped
+
 - [ ] 6. Font setup
   - [ ] 6.1 Set up Inter and Inter Mono fonts
     - Install the `@fontsource/inter` font package
@@ -159,5 +163,4 @@ Implement the OpenSearch-branded shadcn/Tailwind CSS v4 design system. The pipel
 - Checkpoints ensure incremental validation
 - Property tests use `fast-check` library as specified in the design
 - All code is TypeScript as established in the design document
-- Next.js config must set `devIndicators: false`
 - The `cn()` utility (clsx + tailwind-merge) should be used for conditional class composition in components
